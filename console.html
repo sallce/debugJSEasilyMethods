@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Console Methods</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+      <div id="info">
+           <h3>My github：www.github.com/sallce</h3>
+          <p>Full stack PHP developer</p>
+      </div>
+        <script type="text/javascript">
+        //1.show message methods
+         console.log('log');
+         console.info('info');
+         console.error('error');
+         console.warn('warning');
+        //2.placeholder
+        console.log("%dyear %dmonth %ddate",2011,3,26);
+        //3.message group
+          console.group("First message group");
+
+       　　　　console.log("1.1. I love programming");
+
+       　　　　console.log("1.2. Let's debug javascript");
+
+       　　console.groupEnd();
+
+   　　    console.group("Second message group");
+
+       　　　　console.log("2.1. My github：www.github.com/sallce");
+
+       　　　　console.log("2.2. Full stack PHP developer");
+
+   　　    console.groupEnd();
+
+        //4.object informaiton
+         var info = {
+                    github:"www.github.com/sallce",
+                    experienceYear:5,
+                    message:"Full stack PHP developer"
+                };
+          console.dir(info);
+
+        //5.show DOM element information
+        var info = document.getElementById('info');
+        console.dirxml(info);
+
+        //6.check if variable is true
+        var result = 1;
+    　　console.assert( result );
+    　　var year = 2014;
+    　　console.assert(year == 2018 );
+
+        //7.trace how function is called
+        function add(a,b){
+           console.trace();
+    　　　　return a+b;
+    　　}
+    　　var x = add3(1,1);
+    　　function add3(a,b){return add2(a,b);}
+    　　function add2(a,b){return add1(a,b);}
+   　　 function add1(a,b){return add(a,b);}
+
+       //8.timer
+       console.time("console timer one");//need to match name
+    　　for(var i=0;i<1000;i++){
+    　　　　for(var j=0;j<1000;j++){}
+    　　}
+    　　console.timeEnd("console timer one");
+
+        //9.performance analysis
+        function All(){
+                alert(11);
+    　　　　     for(var i=0;i<10;i++){
+                    funcA(1000);
+                 }
+    　　　　    funcB(10000);
+    　　    }
+
+       　　function funcA(count){
+       　　　　for(var i=0;i<count;i++){}
+       　　}
+
+       　　function funcB(count){
+       　　　　for(var i=0;i<count;i++){}
+       　　}
+
+       　　console.profile('performance analysis');
+       　　All();
+       　　console.profileEnd();
+       </script>
+   </body>
+   </html>
